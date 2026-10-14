@@ -48,3 +48,16 @@ A GitHub Actions workflow builds with Vite and deploys the `dist/` directory on 
 ## License
 
 Prototype source. Add an explicit license before redistributing outside your own project.
+
+## Android APK
+
+This repository can also build an Android app wrapper around the same playable web-game slice using Capacitor. The Android WebView uses the device's supported graphics backend; WebGL 2 is the expected compatibility path on many Android devices, while WebGPU availability depends on the Android System WebView/device.
+
+### Get the APK
+
+1. Open **Actions → Build Android APK**.
+2. Select **Run workflow** if a run has not started automatically.
+3. Open the completed run and download the `bunker-conquest-android-debug` artifact.
+4. Extract the ZIP; install `app-debug.apk` on your Android device. You may need to allow installation from your browser or file manager.
+
+The workflow creates a **debug APK** for testing, not a signed Play Store release. The APK build succeeding verifies packaging, not that every GPU/device combination has been play-tested.
