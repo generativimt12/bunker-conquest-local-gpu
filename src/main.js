@@ -98,7 +98,7 @@ function cylinder(n,p,s,m,parent,angles){return part(n,'cylinder',p,s,m,parent,a
 function sphere(n,p,s,m,parent){return part(n,'sphere',p,s,m,parent);}
 function pointLight(name,pos,color,intensity,range,parent) {
   const e=new pc.Entity(name);e.addComponent('light',{type:'omni',color:C(color[0],color[1],color[2]),intensity:intensity,range:range,castShadows:false});
-  (parent||app.root).addChild(e);e.setPosition(pos[0],pos[1],pos[2]);return e;
+  (parent||app.root).addChild(e);if(parent)e.setLocalPosition(pos[0],pos[1],pos[2]);else e.setPosition(pos[0],pos[1],pos[2]);return e;
 }
 const sun=new pc.Entity('warm industrial key');sun.addComponent('light',{type:'directional',color:C(.72,.76,.68),intensity:1.15,castShadows:true,shadowResolution:2048,normalOffsetBias:.04});app.root.addChild(sun);sun.setEulerAngles(42,28,0);
 const cameraEntity=new pc.Entity('first person camera');cameraEntity.addComponent('camera',{clearColor:C(.025,.035,.034),fov:73,nearClip:.07,farClip:65});app.root.addChild(cameraEntity);
@@ -143,8 +143,8 @@ for(let i=0;i<3;i++){for(let j=0;j<3;j++){const x=-3.15+i*.45,z=-4.8+j*.35;const
 const panel=box('electrical cabinet',[3.83,1.62,-7.6],[.22,1.35,1.05],M.steel);
 box('cabinet dark face',[3.69,1.63,-7.6],[.035,1.12,.86],M.black);
 box('cabinet live screen',[3.665,1.91,-7.47],[.025,.28,.43],M.screen);
-for(let y of [1.26,1.39,1.52]){cylinder('breaker handle',[3.64,y,-7.78],[.065,.045,.045],M.bulb,[app.root]);}
-for(let side of [-1,1])for(let y of [1.12,2.12])cylinder('cabinet bolts',[3.64,y,-7.98+side*.32],[.025,.025,.025],M.brass);
+for(let y of [1.26,1.39,1.52]){cylinder('breaker handle',[3.64,y,-7.78],[.065,.045,.045],M.bulb,app.root);}
+for(let side of [-1,1])for(let y of [1.12,2.12])cylinder('cabinet bolts',[3.64,y,-7.98+side*.32],[.025,.025,.025],M.steel);
 const cabinetLight=pointLight('cabinet power glow',[3.55,1.7,-7.6],[.16,1,.42],1.7,4);
 const lampAt=[{p:V(0,3.86,-1),light:lamps[1],bulb:null,alive:true},{p:V(0,3.86,-9),light:lamps[2],bulb:null,alive:true}];
 lampAt[0].bulb=box('destructible diffuser A',[0,4.035,-1],[.82,.018,1.16],M.bulb);
