@@ -9,9 +9,12 @@
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
-    "playcanvas": "^2.23.1"
+    "playcanvas": "^2.23.1",
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/android": "^7.4.3"
   },
   "devDependencies": {
-    "vite": "^7.1.12"
+    "vite": "^7.1.12",
+    "@capacitor/cli": "^7.4.3"
   }
 }
