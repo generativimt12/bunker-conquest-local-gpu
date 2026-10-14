@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#090e0e">
+<title>BUNKER CONQUEST — Local GPU Edition</title>
+</head>
+<body>
+<canvas id="application" aria-label="Bunker Conquest 3D"></canvas>
+<div id="vignette"></div><div id="grain"></div><div id="damage"></div>
+<div id="hud">
+  <section id="mission" class="glass"><div class="eyebrow">BLACKSITE / OPERATION IRON VEIL</div><div class="mission-name">SECTOR 04 — RELAY ROOM</div><div id="objective">נטרל את השומר והגע למסוף האבטחה.</div></section>
+  <section id="stats"><div class="glass stat"><span>VITALS</span><b id="hp">100<small>%</small></b><i><em id="hpbar"></em></i></div><div class="glass stat"><span>THREAT</span><b id="threat" class="amber">ACTIVE</b></div></section>
+  <div id="crosshair"><i></i><b></b></div><div id="hitmarker">×</div>
+  <section id="weapon" class="glass"><div id="wname">AR-09 / SERVICE RIFLE</div><div><b id="ammo">30</b><small id="reserve">/ 120</small></div><div id="wmode">FULL AUTO · 5.56 × 45</div></section>
+  <div id="usePrompt" class="glass">[ E ] הפעלת ממסר</div><div id="toast">GUARD NEUTRALIZED</div>
+  <div id="help">WASD תנועה · עכבר מבט · קליק ירי<br>R טעינה · Q החלפת נשק · E הפעלה · Shift ריצה · Space קפיצה</div>
+</div>
+<div id="touchUI"><div id="lookZone"></div><div id="stick"><div id="nub"></div></div><button id="fireBtn" class="touch">FIRE</button><button id="reloadBtn" class="touch">RELOAD</button><button id="useBtn" class="touch">USE</button><button id="runBtn" class="touch">RUN</button><button id="jumpBtn" class="touch">JUMP</button><button id="switchBtn" class="touch">SWAP</button></div>
+<div id="intro"><div class="intro-card"><div class="eyebrow">LOCAL GPU RENDERER / WEBGPU → WEBGL 2 FALLBACK</div><h1>BUNKER<br><span>CONQUEST</span></h1><p>מקטע משחק מקומי עם חומרים פיזיקליים, טקסטורות פרוצדורליות, צללים בזמן אמת, אויב פעיל ואובייקטים שמגיבים לירי.</p><div class="chips"><span>LOCAL GPU</span><span>WEBGPU</span><span>PBR MATERIALS</span><span>REAL-TIME SHADOWS</span><span>TOUCH + DESKTOP</span></div><button id="deploy">ENTER SECTOR ↗</button><p class="foot">העיבוד מתבצע במחשב/טלפון שלך. אין הזרמת וידאו או נכסים מרוחקים בזמן המשחק.</p></div></div>
+<div id="finish"><div class="finish-card"><div class="eyebrow">OBJECTIVE COMPLETE</div><h2 id="finishTitle">RELAY SECURED</h2><p id="finishText">המסוף אובטח.</p><button id="again">REDEPLOY</button></div></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
